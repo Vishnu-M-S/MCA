@@ -65,27 +65,28 @@ var user=document.form.user.value;
 var passcode=document.form.passcode.value;
 var re=/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 var ren=/[0-9!@#$%^&*]/;
-var qw=/^(?=.*\d)(?=.*[a-z])(?=.*[@])(?=.*[gmail])(?=.8[.])(?=.*[com])/;
-if(fname==""){
-	alert("enter first name !");
-	document.form.fname.focus();
-	return false;
-	}
-else if(ren.test(fname)){
-	alert("enter valid name!");
-	document.form.fname.focus();
-	return false;
-	}
-if(email==""){
-	alert("Enter email!!");
-	document.form.email.focus();
-	return false;
-	}
-else if(qw.test(email)){
-	alert("Enter valid mail id!!");
-	document.form.email.focus();
-	return false;
-	}
+var qw = /^(?=.*\d)(?=.*[a-z])(?=.*[@])(?=.*[gmail])(?=.*[.])(?=.*[com])/;
+if (fname == "") {
+        alert("Enter first name!");
+        document.form.fname.focus();
+        return false;
+    }
+else if (ren.test(fname)) {
+        alert("Enter a valid name!");
+        document.form.fname.focus();
+        return false;
+    }
+
+    if (email == "") {
+        alert("Enter email!!");
+        document.form.email.focus();
+        return false;
+    }
+else if(!qw.test(email)){
+alert("Enter Valid mail id !!");
+document.form.email.focus();
+return false;
+}
 if (mob==""){
 	alert("enter mobile number");
 	return false;
@@ -103,7 +104,7 @@ if (user==""){
 	document.form.user.focus();
 	return false;
 	}
-if(passcode==""||passscode.length<8||!re.test(passcode)){
+if(passcode==""||passcode.length<8||!re.test(passcode)){
 	alert("enter minuimum 8 digit password"+'\n'+"atleast one lowercase & uppercase & digit&special character must be included");
 	document.form.passcode.focus();
 	return false;
